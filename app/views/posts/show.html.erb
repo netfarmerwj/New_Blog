@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<div class="main">
+	<h1><%= @post.title %></h1>
+
+	<p>
+	  <b>fenlei:</b>
+	  <%= @post.catagary.name %>&nbsp;&nbsp;&nbsp;
+	  <%= time_ago_in_words @post.created_at %> ago&nbsp;&nbsp;&nbsp;
+	  <%= link_to 'Edit', edit_post_path(@post) %> |&nbsp;&nbsp;&nbsp;
+	  <%= link_to 'Back', posts_path %>
+	</p>
+
+	<p class="Content">
+	  <b>Content:</b>
+	  <%= @post.content %>
+	</p>
+
+
+---------------------------<br/>
+<div class="comment">
+	<h2>pinglun<%= @post.comments.size %></h2>
+	<% if @comments %>
+		
+
+	<% @comments.each do |comment| %>
+	<ul>
+		<li> 
+			<span><%= comment.content %></span>
+			<%= time_ago_in_words @post.created_at %> ago</li>
+	</ul>
+		<% end%>
+	<% end %>
+
+	<% if user_singned_in? %>
+			<%= render 'comments/form' %>
+	<% end %>
+
+</div>
+	
+
+
+
+	
+
+
+</div>

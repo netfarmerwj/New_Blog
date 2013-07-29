@@ -1,0 +1,23 @@
+<h1>Listing catagaries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @catagaries.each do |catagary| %>
+  <tr>
+    <td><%= catagary.name %></td>
+    <td><%= link_to 'Show', catagary %></td>
+    <td><%= link_to 'Edit', edit_catagary_path(catagary) %></td>
+    <td><%= link_to 'Destroy', catagary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Catagary', new_catagary_path %>
